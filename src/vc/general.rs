@@ -1,4 +1,8 @@
-use bitvec;
+use std::sync::atomic::AtomicU8;
+
+use bitvec::access::BitSafeU8;
+use bitvec::prelude::*;
+use byteorder::{ByteOrder, BigEndian};
 use blake2::{Blake2b, Digest};
 use num_bigint::BigUint;
 use rand::rngs::OsRng;
@@ -123,7 +127,7 @@ impl<A: UniversalAccumulator + BatchedAccumulator> DynamicVectorCommitment for V
     }
 }
 
-fn hash_binary(m: &BigUint, lambda: usize) -> bitvec::BitVec<bitvec::BigEndian, u8> {
+fn hash_binary(m: &BigUint, lambda: usize) -> BitVec<> {
     let bytes = &Blake2b::digest(&m.to_bytes_be())[..];
     let len = ::std::cmp::min(bytes.len(), lambda / 8);
 
