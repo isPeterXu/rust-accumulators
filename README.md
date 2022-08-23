@@ -28,6 +28,24 @@ We utilize a third party BigNum Lib for now. Pure rust implementation soon.
         $ brew install gmp
         ```
     
+
+## Install Rust   
+- Use rustup to install rustc and cargo.  
+- The project is built with rustc 1.65.0-nightly (2022-08-21):
+    ```sh
+    $ rustup default nightly
+    ```
+    Following this link to manage rust versions:https://doc.bccnsoft.com/docs/rust-1.36.0-docs-html/edition-guide/rust-2018/rustup-for-managing-rust-versions.html
+- Get test results:
+    ```sh
+    $ cd src
+    $ cargo test
+    ```
+    ![avatar](./test_result.png)
+
+## TODO
+- A full-fledged member set.
+
 ## LICENSE
 
 MIT or Apache 2.0
